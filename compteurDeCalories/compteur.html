@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Compteur de calories</title>
+    <meta charset="UTF-8" />
+	<meta name="author" content="22009614">
+    <style>
+        body {
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        #conteneur {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            grid-gap: 20px;
+        }
+
+        #selection {
+            min-width: 500px;
+            border-right: 1px solid black;
+        }
+        #selection div {
+            margin-bottom: 10px;
+        }
+    </style>
+
+    <script src="data.js"></script>
+    <script src="compteur.js"></script>
+
+</head>
+<body>
+<h1>Compteur de calories</h1>
+<div id="conteneur">
+    <form id="selection">
+        <h2>Ingrédient</h2>
+        <div><label>Choisir l'ingrédient à ajouter
+            <select name="ingredient" id="select-ingredient"></select>
+        </label></div>
+
+        <div><label>Poids <input type="text" name="poids"> en grammes</label></div>
+        <button type="submit">Ajouter</button>
+    </form>
+    <section>
+        <h2>Mon total</h2>
+        <div id="compteur"></div>
+    </section>
+</div>
+<script>
+"use strict";
+calories();
+</script>
+</body>
+</html>
