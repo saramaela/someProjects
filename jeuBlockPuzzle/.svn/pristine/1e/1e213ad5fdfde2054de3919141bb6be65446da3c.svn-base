@@ -1,0 +1,63 @@
+
+
+
+
+import random
+
+l= [(0,0), (-1,0), (-2,0), (-3,0), (-3, 1), (-3,2)]
+carre_2=[(0,0),(0,1),(-1,0),(-1,1)]
+carre_3=[(0,0),(0,1),(0,2),(2,-1),(1,-1),(0,-1),(0,-2),(1,-2),(2,-2)]
+colonne_3=[(0,0),(0,1),(0,2)]
+ligne_3=[(0,0),(1,0),(2,0)]  
+
+blocs=[l, carre_2, carre_3, colonne_3, ligne_3]   
+
+def choix_blocs() :
+    return random.choices(blocs, k=3)
+
+
+
+print(choix_blocs())
+
+
+
+class Grille:
+    
+    def __init__(self, n ):
+        self.matrix = [[1]*n for i in range(n)]
+        self.score = score_joueur()
+        self.effacer =  effacer_lignes()
+
+
+    def score_joueur(self):
+         gr = self.matrix
+         score = 0 ;
+         for i in range (gr):
+             for j in range (gr):
+                 if gr[i][j]==1:
+                     score = score + 1;
+         return score
+                 
+
+    def effacer_lignes(self):
+        grille = self.matrix
+        for ligne in grille:
+            if 0 not in ligne:
+                for i in range( len(self.matrix)):
+                    ligne[i] = 0
+        return grille
+    
+    
+    def end_game(self):
+        grille = self.matrix
+        for ligne in grille 
+                
+
+test = Grille(5)
+print(test.matrix)
+print(test.score)
+print(test.effacer)
+
+
+
+

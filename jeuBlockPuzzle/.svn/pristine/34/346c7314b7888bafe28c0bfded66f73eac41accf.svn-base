@@ -1,0 +1,310 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel} %paquet de langue français
+\usepackage[T1]{fontenc} %encodage de la police
+\usepackage[top=2cm,bottom=2cm,left=2cm,right=2cm]{geometry}
+\usepackage{graphicx}
+\frenchbsetup{StandardLists=true} 
+\usepackage{enumitem}
+\usepackage{verbatim}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue, linkcolor= black}
+\title{RAPPORT DE CRÉATION D'UN JEU PYTHON}
+
+
+\author{mis en page par \\
+   Marta BOSHKOVSKA, Luc GUYARD, Sara SALÉ  \\
+   \\
+   Licence 1 Informatique\\
+   Groupe 4A\\}
+   
+\date{Avril 2021}
+
+\begin{document}
+
+\maketitle
+
+\begin{center}
+
+\includegraphics[width=4cm]{general/LogoUNICAENv.png}\\[3cm]
+\LARGE{\underline{UE} : Conception logicielle}\\[1cm]
+\Large{\underline{Projet choisi}: \textit{Block Puzzle}}\\
+
+\end{center}
+\thispagestyle{empty}
+\newpage
+\begin{center}
+
+\section{\textsc{Introduction}}
+\end{center}
+\vspace*{2cm}
+
+Actuellement en première année de Licence Informatique, nous sommes amenés à  découvrir les fondements de ce vaste domaine qu'est l'informatique.
+
+Cette année est marquée essentiellement par l'apprentissage des fondamentaux que ce soient de la programmation, de l'utilisation du web ou la découverte de Internet. En ce sens,tout au long de ce deuxième semestre nous avons étudié plusieurs unités d'enseignement notamment Conception logicielle.\\
+ 
+L'objectif de de l'unité d'enseignement \textit{Conception logicielle} a porté sur l'approfondissement de l'utilisation de Python et l'utilisation de la bibliothèque Pygame pour la réalisation d'un programme de jeu. Les travaux pratiques ont été l'occasion pour nous de mettre en application leurs différentes méthodes d'utilisation, de développer des compétences par leur emploi et d'en avoir une utilisation indépendante du cours.\\
+
+C'est pourquoi, afin de nous mettre dans les conditions réelles du monde professionnel et d'évaluer notre travail, il nous a été demandé de réaliser ce rapport. 
+
+Aussi nous nous attellerons à vous présenter le processus d'élaboration de notre devoir et le fonctionnement de notre programme.  
+
+
+\newpage 
+
+\tableofcontents
+
+\newpage
+
+\vspace*{8cm}
+
+\begin{center}
+
+\section{\textsc{Le processus de réalisation}}
+\end{center}
+
+\newpage 
+
+\subsection{Choix du sujet}
+
+Il nous a été proposé sept sujets et parmi ceux-ci, notre attention s'est porté sur deux sujets: \textit{Block Puzzle et Puzzle-Quest}. 
+La compréhension de l'explication des jeux a joué pour beaucoup, le fait d'avoir déjà joué à ces jeux auparavant et les liens de démonstrations de ces jeux en ligne également. Nous nous projetions mieux dans la réalisation d'un jeu que nous connaissions déjà ou avions déjà joué que dans celle d'un jeu que nous découvrions pour la première fois. Ensuite, d'un avis commun notre choix s'est porté sur \textit{Block Puzzle}. Le principe de réalisation du jeu semblait simple, accessible et intéressant.
+
+
+
+\subsection{L'organisation du travail}
+
+Au départ, nous étions quatre membres au sein du groupe. Avec le mode distanciel, nous avions quelques difficultés pour la répartition des tâches. Ainsi les deux premières séances de travail étaient en quelque sorte un "patchwork". Avec les directives du professeur sur la partie Wiki de la forge, nous avions chacun selon ce que nous avions compris essayé de donner forme à la base du travail. Ensuite, les trois séances environ qui ont suivi, nous ne travaillions plus tous à la fois mais plutôt par groupe de deux personnes. 
+Tandis que un demi groupe travaillait sur les fonctions principales utilisées pour le jeu, un second groupe a commencé à travailler sur Pygame pour la réalisation de la base de l'interface de jeu.
+L'évolution de notre manière de travailler a été permise par une meilleure compréhension de ce qu'il était réellement attendus de nous, par l'organisation du jeu lui-même. En effet, le jeu nécessite plusieurs bases qui doivent évoluer simultanément mais distinctement et cela même si elles sont liées entre elles. Nous avons gardé ce rythme jusqu'à un certain temps, cependant le changement de notre effectif nous a contraint à retravailler selon l'organisation "patchwork".
+Le retour en présentiel nous a fortement aidé car nous avons pu réfléchir de nouveau à trois avec l’aide de notre enseignant. Nous avons pu alors assembler le travail réalisé lors du distanciel pour faire fonctionner le jeu ainsi que corriger les erreurs et les problèmes mineurs. 
+
+
+\subsection{Présentation du jeu choisi et présentation d'une partie de jeu}
+
+\subsubsection{Block Puzzle}
+
+Block Puzzle est un jeu qui peut se jouer en solo ou en multijoueur. Il consiste à placer une série de 3 formes indépendantes sur une grille principale d’une taille qui varie selon le choix du joueur. Le joueur doit pouvoir placer les trois blocs sur la grille principale pour débloquer trois nouveaux blocs générés automatiquement et ainsi continuer à les placer. Le joueur ne peut cependant pas placer un bloc sur la grille si la place est déjà prise par un autre bloc. Lorsqu'une colonne ou une ligne de la grille principale est entièrement remplie par les blocs, celle-ci s’annule pour pouvoir laisser au joueur la possibilité de placer des blocs dessus. La suppression d’une ligne ou d’une colonne a surtout pour but d'augmenter le score d'un point. L’objectif est d’atteindre le meilleur score avant de ne plus pouvoir placer de bloc dans la grille. 
+En mode multi-joueur, les deux joueurs jouent avec les mêmes blocs indépendants en même temps pour ne pas créer d’inégalité. L’objectif est également d’atteindre le meilleur score entre les deux joueurs à la différence que la suppression d’une ligne ou d’une colonne par l’un des deux joueurs entraîne la création de cette même ligne chez le joueur adverse.
+
+\subsubsection{Présentation d'une partie de jeu}
+
+
+Cette série d’images montre comment se présente le jeu de \textit{Block Puzzle}.
+\newline
+
+\includegraphics[width=7.25cm]{general/partie_de_jeu/Accueil.png}
+\includegraphics[width=7cm]{general/partie_de_jeu/grille.png}
+\includegraphics[height=7cm]{general/partie_de_jeu/blocs.png}\\[0.25cm]
+Au lancement du jeu, tout commence avec la page d'accueil. Le joueur a la possibilité de choisir la taille de sa grille de jeu et normalement le nombre de joueurs. Par contre, il n’a pas la possibilité de choisir un niveau car le jeu  a été conçu sur la base d’un degré de compétence moyen. On peut dire que il est accessible à tout type de joueurs.
+En validant ces données, la grille de jeu apparaît avec toutes les exigences données précédemment .
+Le joueur doit alors sélectionner un des blocs parmi ceux qui lui sont proposés puis le placer sur la grille de jeu jusqu'à ce qu'il n'ait plus d'espaces. Cela signifie que la partie est terminée.\\[0.75cm]
+
+
+Après la présentation de la forme de notre travail, il convient de montrer les moyens et techniques qui ont permis l'élaboration effective de notre projet et son bon fonctionnement.
+
+
+\newpage
+
+\vspace*{8cm}
+
+\begin{center}
+
+\section{\textsc{Le fonctionnement du programme}}
+
+
+\end{center}
+
+\newpage 
+
+\subsection{Présentation du programme}
+
+\subsubsection{Les fichiers}
+
+
+Le programme se subdivise en quatre fichiers python:
+
+\begin{itemize}
+    \item Grid.py
+\end{itemize}
+
+ Grid.py est le premier fichier qui été réalisé. Il représente en quelque sorte le cœur du travail.  C’est grâce à lui que nous avons la matrice initiale. Il contient la structure du jeu. Le jeu étant une composition de grilles, il a fallu matérialiser cette composition à l’aide de fonctions classiques avant d’aborder la partie graphique. C’est un assemblage de fonctions qui agissent sur la présentation des éléments de jeu : la construction de la grille de jeu et  l’utilisation des blocs  ainsi que sur les différents mouvements  au sein de cette grille. 
+ 
+ \begin{itemize}
+    \item Blocs.py
+\end{itemize}
+
+Ce fichier représente la gestion des blocs qui permettent de jouer. C’est presque le fichier de la gestion des données de jeu puisque il propose et génère les outils de jeu au joueur.
+
+\begin{itemize}
+    \item Interface.py
+\end{itemize}
+
+
+C’est le moteur du jeu. Il contient non seulement la partie graphique, c'est-à-dire visuelle du projet, mais aussi la fonction principale du jeu. Il contient des attributs qui  lient les différents fichiers entre eux.
+Ce fichier est également le  premier où l’on note l’utilisation de la bibliothèque Pygame. C’est grâce à Pygame que nous avons la partie multimédia de notre jeu. L'exécution de ce fichier est la concrétisation de toutes les tâches que nous avons réalisées au cours de ces dernières semaines.
+
+\begin{itemize}
+    \item Accueil.py
+\end{itemize}
+
+Enfin nous avons le fichier accueil.py qui contient uniquement la page de démarrage du jeu. C’est à ce niveau qu’il est donné la possibilité de choisir le nombre de joueur et la taille de la grille de jeu. Il est marqué lui-aussi par l'utilisation de la bibliothèque Pygame.
+
+\subsubsection{Les classes}
+
+Les différents fichiers s’orientent autour de quatre classes  que sont : \begin{verbatim}
+    Bloc(),Grid(),Jeu(),Accueil() 
+\end{verbatim}
+
+Afin de rendre notre projet “dynamique”, nous avons travaillé avec des classes qui permettent de synthétiser notre code et de le rendre plus accessible.
+Tout commence avec la classe \textit{Grid()}, située dans le fichier Grid.py.Elle est indispensable car elle permet la création d’une liste de liste à l’origine de la matrice utile pour la suite de notre projet. Cette classe n’a pas nécessité l’utilisation de pygame. Parallèlement nous avons la classe \textit{Blocs()} qui nous permet de manipuler les blocs. Nous avons d’une part les blocs disponibles, c’est-à-dire ceux parmi lesquels le joueur doit choisir et le bloc choisi par le joueur. En outre, la classe \textit{Grid()} contient quatre méthodes fondamentales. L’une permettant de placer les blocs  qui ont été construits dans le fichier Blocs.py, une autre permettant d’effacer les colonnes et lignes complètes afin de faire évoluer le jeu. Les deux autres permettent respectivement de définir si les blocs disponibles peuvent être placés et ainsi à quel moment le joueur a perdu. Puis nous avons la classe \textit{Jeu()} située dans le fichier interface.py. C’est la classe principale, sa plus grande différence, c’est l’utilisation de 
+Pygame en son sein. Cette classe nous permet de visualiser, la grille, les blocs aléatoires disponibles, les blocs placés par le joueur sur la grille. Elle contient tous les mouvements de souris, c’est une classe qui contient l’ensemble des interactions de la souris qu’il peut y avoir tout au long d’une partie. Enfin, nous avons \textit{Jeu()}
+
+
+
+\subsection{Le schéma d'interaction entre les classes}
+
+
+Pour éviter une répétition et optimiser le code, les classes interagissent naturellement entre elles. Cette interaction montre l'architecture interne du projet et ces interactions se présentent comme suit :
+
+
+
+\begin{itemize}
+    \item  \textbf{De la classe \textit{Accueil()} à la classe \textit{Interface()}}
+\end{itemize}
+Lors de notre lancement du jeu, nous arrivons sur la Classe Accueil. Comme il a été dit plus tôt, cette classe permet de sélectionner le nombre de joueurs ainsi que la taille de la grille principale.
+
+On commence tout d'abord grâce à l'événement MOUSEBUTTON, par capter le clique de la souris. Si celui-ci est capté dans la zone destiné au texte, cette zone étant en réalité un rectangle, l'attribut booléen  que nous définissons bien avant passe à True.
+Puis l'événement pygame.Keydown est utilisé. Cet évènement permet de capter les touches sur le clavier. Ainsi à travers une condition, l'utilisateur peut écrire du texte et le supprimer avec la touche BACKSPACE.
+Nous utilisons cette série d'événements deux fois : une fois pour le nombre de joueurs et une fois pour le nombre de lignes demandés par le joueur.\par
+
+Dès lors, l'affichage du texte et des choix du joueur sur l'écran sont possibles grâce aux variables \textit{Affjoueur} et \textit{Affligne}. Afin de confirmer les réponses, un attribut capte un bouton de confirmation par l'évènement MOUSEBUTTON. Il est important de souligner que les seules possibilités pour le choix du nombre de joueur, sont les chaînes de caractères '1' et '2'. Une autre réponse entraîne la réinitialisation de la chaîne de caractère. La chaîne de caractère représentant le nombre de ligne est alors transformé en une valeur réel. Lorsque le joueur confirme sa saisie, la classe \textit{Interface()} est lancée avec le nombre de lignes demandé par le joueur. Avec notre version, seule la chaîne de caractère '1' permet cet aboutissement. \newline
+L'image ci-dessous présente la partie où la classe \textit{accueil()} renvoie à la classe \textit{Interface()}
+\begin{center}
+    \includegraphics[width = 9cm]{general/pygame_descript/liaison_accueil.png}
+\end{center}
+
+
+La chaîne de caractère '2' pourra avec une version ultérieure lancer une nouvelle classe pour deux joueurs avec le nombres de lignes sélectionnées par le joueur.
+En d'autre termes pour cette version du jeu, seul le mode mode joueur individuel est disponible.
+
+
+    
+\begin{itemize}
+    \item  \textbf{Interaction entre \textit{Interface()}  et les classes \textit{Grid()} et \textit{Blocs()}}
+\end{itemize}
+
+Pour rappel, la classe \textit{Interface()} collabore avec les classes \textit{Grid()} et \textit{Bloc()} pour fournir les informations et les méthodes nécessaires au fonctionnement du jeu. Les surfaces créées avec Pygame ne sont que des dessins et n'ont aucune interaction entre elles. Il faut pour cela créer des listes de listes puis les lier à la classe \textit{Interface()} pour représenter ces matrices.
+Il est important de noter que aussi bien la grille principale de jeu que  les surfaces, où sont accessibles les blocs pour le jeu, sont en réalité des listes de listes initialisées à 0. 
+En déposant les blocs sur ces surfaces, les emplacements de ceux-ci sont automatiquement initialisés à 'X'. Cela permet de suivre l'évolution de notre liste, d'ajouter de la couleur, de permettre un visuel au joueur et d'implémenter d'autres paramètres.
+Avec deux méthodes de la classe \textit{Interface()}, nous dessinons une surface sur notre fenêtre de jeu. Cette surface en pixels représente le nombre de lignes, correspondant aussi au nombre de colonnes, prédéfini par le joueur à l'écran d'accueil. 
+Une fois cette grille créée graphiquement, nous l'avons liée à un attribut de la classe \textit{Grid()} responsable de la création d'une liste de liste initialisée à 0. 
+\par
+Nous devions également afficher les formes à déplacer par le joueur. Nous avons donc affiché trois surfaces sur la parties droites de l'écran à laquelle nous lions trois listes de listes initialisées à 0. C'est là que se trouvent les trois listes de tuples représentant les blocs choisis aléatoirement par notre méthode {\fontfamily{qcr}\selectfont proposed\_bloc}. 
+Celle-ci est située dans la classe \textit{Blocs()} et permet de placer dans une liste vide trois listes de tuples récupérées aléatoirement dans le dictionnaire où se trouve tous les blocs du jeu.
+
+Après cette structuration et le répertoriage des mouvements de la souris du joueur, nous avons été à même de créer une méthode permettant de  placer les blocs disponibles sur la grille principale. La méthode {\fontfamily{qcr}\selectfont placer }, située dans la classe \textit{Grid()} permet de  vérifier que le bloc sélectionné par le joueur peut-être placé dans la grille principale. En effet, un bloc ne peut être placé s'il est en dehors de la grille principale ou si un autre bloc est déjà placé à ce même endroit sur la grille principale. Et lorsque les formes sont placées, leurs positions sont immédiatement initialisées à 'X'.
+
+
+\par Puis, grâce à cette initialisation automatique à 'X' des emplacements des blocs sur la grille principale, nous avons mis en place la méthode {\fontfamily{qcr}\selectfont effacer\_lignes}. Construite dans la classe \textit{Grid()} et utilisée dans la classe \textit{Interface()}, elle permet de vérifier qu'une ligne ou une colonne de la liste de listes principale est remplie de 'X'.Si c'est le cas, elle réinitialise toute la rangée ou toute la colonne correspondante à '0' et efface ainsi toutes les parties du blocs de cette rangée ou colonne comme l'image ci-dessous le montre. Le score augmente en ce sens.\newline
+\begin{center}
+\includegraphics[width = 7.5cm]{general/partie_de_jeu/effacer_cols.png}
+    \includegraphics[width = 8cm]{general/partie_de_jeu/effacer_lignes.png}
+\end{center}
+
+Par ailleurs , nous avons les méthodes  {\fontfamily{qcr}\selectfont test\_placer} et {\fontfamily{qcr}\selectfont perdue} qui nous aident à définir lorsque le joueur a perdu la partie c'est-à-dire qu'il n'y a plus de places dans la grille principale pour placer un autre bloc. Dans un premier temps, {\fontfamily{qcr}\selectfont test\_placer} nous aide à voir si un bloc peut-être posé puis {\fontfamily{qcr}\selectfont perdue} vérifie pour l'ensemble des blocs. C'est cette dernière qui est appelée dans \textit{Interface ()}.
+Une fois appelée dans \textit{Interface ()}, lorsque le joueur perd, il s'affiche un texte pour le signaler comme l'indique l'image qui suit.
+\begin{center}
+    \includegraphics[width = 7cm]{general/partie_de_jeu/perdu.png}
+\end{center}
+
+
+\begin{itemize}
+    \item  \textbf{Structure de la classe \textit{Interface()}}
+\end{itemize}
+
+Cette classe est celle qui contient le plus de méthodes.
+Nous avons {\fontfamily{qcr}\selectfont carre}, {\fontfamily{qcr}\selectfont convert}, {\fontfamily{qcr}\selectfont score}, {\fontfamily{qcr}\selectfont contrecarre},
+{\fontfamily{qcr}\selectfont pedu}, {\fontfamily{qcr}\selectfont test}, {\fontfamily{qcr}\selectfont dessine\_bloc}, 
+{\fontfamily{qcr}\selectfont dessine\_matrix} et\newline {\fontfamily{qcr}\selectfont fonction\_principale}.
+\newline
+
+Premièrement, la méthode {\fontfamily{qcr}\selectfont carre} nous permet de récupérer en fonction de la position en pixels de la souris sur la fenêtre, une des trois listes de tuples correspondant à la forme à placer. Selon le carré sélectionné, une liste vide prend la valeur du bloc correspondant. Simultanément, l'attribut qui correspond à la surface sur laquelle elle a été sélectionnée prend la valeur False. Nous avons donc une nouvelle liste avec uniquement la liste correspondant à la forme à déplacer.
+\par
+
+La méthode {\fontfamily{qcr}\selectfont convert} permet de convertir les pixels de la fenêtre en nombres entiers. Cela permet de faire correspondre les listes de tuples uniquement en chiffres avec une fenêtre graphique à l'origine en pixels mais transformée également en nombres.
+
+\par Les méthodes {\fontfamily{qcr}\selectfont dessine\_bloc} et {\fontfamily{qcr}\selectfont dessine\_matrix} nous permettent de dessiner toutes les surfaces principales du projet. Ce sont notamment la grille de jeu principale et les surfaces qui permettent d'accueillir les blocs aléatoirement proposés au joueur. 
+Maintenant que nous avons l’interface graphique et ces méthodes prêtes, nous reste avons déterminé les événements qui nous permettraient de récupérer, déplacer et déposer les formes des blocs secondaires jusqu’au bloc principal.
+\par
+Notre méthode {\fontfamily{qcr}\selectfont fonction\_principale} de notre classe participe à la gestion des événements nécessaires au bon fonctionnement de notre jeu. Dans un premier temps, on appelle les méthodes{\fontfamily{qcr}\selectfont dessine\_blocs}  et {\fontfamily{qcr}\selectfont dessine\_matrice}  afin de créer et de lier notre interface graphique avec les matrices accueillant les formes géométriques.
+Le premier événement MOUSEBUTTONDOWN permet de récupérer une des trois listes disponibles représentant les formes. On fait appel à {\fontfamily{qcr}\selectfont carre} cette fois-ci sous la forme self.carre et cette liste est alors placée dans une nouvelle liste unique.
+Maintenant que nous avons la liste de tuples représentant la forme souhaitée, l'évènement MOUSEBUTTONUP permet de capter si la position du clic de la souris se situe dans la grille principale ou non. Pour cela, on fait appel à {\fontfamily{qcr}\selectfont convert} sous la forme self.convert et si la position de la souris est en dehors de la grille principale, la liste de tuples retourne à son emplacement initiale comme si rien ne s'était passé. Au contraire, si le clic de la souris se trouve bien dans les coordonnées de la matrice, la fonction self.placer de la classe \textit{Grid()} permet de voir si la liste de tuples peut être placée ou non dans la grille principale. Si cela est le cas, alors la matrice de notre grille principale transforme les '0' en 'X' et ainsi de suite. Lorsque les trois listes de tuples sont déposées dans la grille principale, la méthode fait appel à {\fontfamily{qcr}\selectfont proposed\_Bloc} pour recréer aléatoirement trois listes de tuples qui sont à nouveau placées dans les matrices secondaires.C'est ce schéma qui est répété jusqu'à ce que le jeu prenne fin.
+\par Enfin à l'aide de la méthode {\fontfamily{qcr}\selectfont test} et l'attribut self.entrer, il existe la possibilité de recommencer une partie de jeu. En effet, lorsque le clic de la souris est capté dans le rectangle self.Entrer, le jeu est réinitialisé. Ainsi, lorsque le joueur perd ou lorsque la partie actuelle ne l'intéresse plus, il peut repartir à zero. Dans la mesure où le joueur perd, la méthode {\fontfamily{qcr}\selectfont pedu } participe à l'affichage d'un texte marquant au joueur qu'il a perdu.\\[0.5cm] 
+C'est cet ensemble d'actions et ces multiples interactions  qui nous permettent d'avoir notre jeu \textit{Block Puzzle}.
+
+
+
+
+
+\subsection{Utilisation de Python et de la  bibliothèque Pygame} 
+
+\subsubsection{Python}
+Ce projet est entièrement réalisé à partir de Python. Nous avions au premier semestre découvert les fondamentaux de ce langage c'est-à-dire l'utilisation des listes, des tuples, des fonctions intégrées et la réalisation de fonctions. Le cours de Conception Logicielle nous a permis plutôt  d'approfondir nos connaissances. Nous avons ainsi appris à manipuler de nouveaux éléments non sans difficulté. Ce sont entre autres les classes et les objets. Le raisonnement est presque le même mais les termes évoluent et l'utilisation des éléments est plus variée  et plus poussée.
+En travaillant en termes de classes et objets, nous avons rendu notre code plus synthétique et plus élaboré.
+
+\subsubsection{Pygame}
+
+Pygame est une bibliothèque libre multi-plateforme qui facilite le développement de jeux vidéo temps réel avec le langage de programmation Python. Elle permet de programmer la partie multimédia (graphismes, son et entrées au clavier, à la souris ou au joystick), sans se heurter aux difficultés des langages de bas niveau\footnote{selon Wikipédia}.  L'utilisation de Pygame nous a quotidiennement demandé un effort de documentation, de recherches tant sur le site officiel que sur les forums. Il s'agit d'une bibliothèque très riche et c'est même cette richesse qui nous a un peu mis en difficulté. C'est-à-dire qu'il y avait une énorme quantité de classes et étant débutant, nous avions du mal à déterminer lesquelles étaient nécessaires et dans quels cas les utiliser, comment employer leurs méthodes respectives.\newline
+
+
+Notre utilisation de Pygame s'est orientée essentiellement autour de la classe \textit{Event} afin de manipuler tous les évènements souris et de l'objet \textit{Surface}  en association avec la classe \textit{draw} pour matérialiser nos blocs et notre grille sous forme de pixels.\\[4cm]
+
+\begin{center}
+    Cette première image ci-dessous montre les différents évènements que nous nous sommes attelés à capter lorsque le joueur devait sélectionner un bloc et le placer sur la grille de jeu. Selon que le bouton de la souris est enfoncé ou relâché nous appelions les méthodes nécessaires.
+\end{center}
+
+\includegraphics[width=14cm]{general/pygame_descript/event.png}
+\\[0.25cm]
+
+\begin{center}
+    Cette seconde image quant à elle montre l'utilisation de l'objet \textit{Surface} et de la méthode \textit{draw} pour le dessin de la grille de jeu. \textit{Surface} a permis de dessiner la grille elle-même et \textit{draw} a permis son quadrillage.
+\end{center}
+
+\includegraphics[width=14cm]{general/pygame_descript/draw_surface.png}
+\\[0.25cm]
+
+ Le but de l'utilisation de Pygame a exclusivement été la réalisation de notre interface graphique et de tous les évènements qui y avaient lieu. On a la possibilité de travailler avec des images sur Pygame. Mais nous  nous sommes uniquement servis de listes et de tuples. Nous avions en conséquences des données à gérer et à ordonner.
+
+
+\subsection{ Insuffisances et améliorations possibles}
+
+S'il y a une chose dont nous avons manqué tout au long du projet, c'est le temps. En effet, l'apprentissage en distanciel nous a ralenti dans la compréhension des nouvelles connaissances et dans l'appropriation de notre projet. Nous avions du mal à comprendre le cours ainsi que ce que nous avions à faire. Cela nous a perdu du temps et notre effectif n'aidant pas nous avons accumulé du retard. 
+Maintes fois, les blocages que nous avons rencontré tout au long du projet étaient dues à la compréhension des objectifs. Ainsi, si nous avions la possibilité de reprendre ce travail, ce serait dans un premier temps la réorganisation de notre temps qui était un peu insuffisant.
+
+Puis, l'utilisation de Pygame pour des débutants n'est pas aussi évidente. Cependant, celle-ci nous a appris à voir la programmation autrement et à mesure que nous avons changé de mode de raisonnement, elle nous est apparu plus accessible. 
+
+Au terme de notre travail nous constatons que notre jeu ne contient que les bases requises, nous n'avons pas pu nous achever l'établissement d'un mode multi-joueur voir même la mise en place d'une intelligence artificielle. Aussi, l'absence d'autres niveaux de jeu peut rendre les parties redondantes. 
+
+\newpage
+\section{CONCLUSION}
+En somme, notre projet était la réalisation d'un jeu intitulé\textit{Block Puzzle}. Pour répondre aux exigences de notre cours, c'est le langage de programmation Python et la bibliothèque libre Pygame qui ont été utilisés. Notre projets s'est subdivisé en quatre fichiers contenant des classes et des objets élaborés tout au long des séances de travaux pratiques et des classes et objets propres à Pygame. Nous devions à la fois réfléchir sur constitution de notre code mais également sur toutes les éventualités possibles lors d'une partie de \textit{Block Puzzle}.\newline
+Ce travail nous a permis de prendre conscience de beaucoup de choses. En premier lieu, cela a été pour nous l'occasion de voir une fois de plus que la programmation nécessite beaucoup de recherches, de temps, de rigueur et une grande capacité d'adaptation surtout lorsque les langages sont nouvellement appris. Par ailleurs, la réalisation du jeu nous a demandé un effort de créativité. Ce projet a participé également à une remise en question de notre organisation générale de travail aussi bien individuelle qu'en groupe.
+Aussi, Python est un langage dont la richesse  et la puissance nous étonnent sans cesse. Le projet a contribué à mettre en évidence nos lacunes dans la compréhension et l'utilisation de ce langage et éveillé nos consciences sur l'urgence de les combler avant qu'il ne soit trop tard. Au terme de notre travail, celui-ci s'est avéré très intéressant et riche en découvertes.
+
+
+\newpage
+\section{ANNEXES}
+\subsection{Sitographie}
+Les sites cités ci-dessous nous on permis de nous documenter mais aussi de voir des applications et utilisations contextuelles et concrètes de Python et Pygame en plus des éléments et tutoriels de notre cours. Ce sont principalement :
+\begin{itemize}
+    \item \href{https://www.pygame.org/}{Pygame}
+    \item \href{https://stackoverflow.com/}{Stack Overflow}
+    \item \href{https://github.com/}{GitHub}
+    \item \href{https://openclassrooms.com/fr/}{OpenClassroooms}
+    \item \href{https://zestedesavoir.com/}{Zeste de Savoir}
+    
+    
+\end{itemize}
+
+\end{document}

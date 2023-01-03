@@ -1,0 +1,39 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Feb  4 13:14:17 2021
+
+@author: lucgu
+"""
+
+import pygame
+import sys
+import random
+
+
+
+        
+
+
+pygame.init()
+
+red_color = pygame.Color(255,0,0)
+black_color = pygame.Color(0,0,0)
+screen = pygame.display.set_mode((700,700))
+screen.fill(red_color)
+
+rect_form= pygame.Rect(100,100,100,100)
+pygame.draw.rect(screen,black_color,rect_form, 5)
+
+
+
+
+pygame.display.flip()
+    
+  
+
+while True:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            sys.exit()
+  
+pygame.Quit()

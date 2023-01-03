@@ -1,0 +1,47 @@
+from blocs import *
+
+
+class Grille():
+    
+    def __init__(self , n):
+        self.matrix = [[1]*n for i in range(n)]
+        self.blocs = { "L" : [(0,0), (-1,0), (-2,0), (-3,0), (-3, 1), (-3,2)],"carre_2" : [(0,0),(0,1),(-1,0),(-1,1)],"carre_3" : [(0,0),(0,1),(0,2),(2,-1),(1,-1),(0,-1),(0,-2),(1,-2),(2,-2)],"colonne_3" : [(0,0),(0,1),(0,2)],"ligne_3" : [(0,0),(1,0),(2,0)]}
+
+
+
+    def score_joueur(self , n):
+         score = 0 ;
+         for i in range (n):
+             for j in range (n):
+                 if self.matrix[i][j]==1:
+                     score = score + 1;
+         return score
+                 
+
+    def effacer_lignes(self):
+        for ligne in self.matrix:
+            if 0 not in ligne:
+                for i in range( len(self.matrix)):
+                    ligne[i] = 0
+        return self.matrix
+
+    def placer (self, x, y):
+        
+        a_placer = Blocs()
+        ressource= tous_les_blocs() #c'est la liste de tous les blocs
+        # for positions in a_placer.bloc_du_joueur:
+            # print(positions)
+        pos_intitial = self.matrix[x][y]
+        
+            
+    
+    
+
+                
+
+test = Grille(6)
+print(test.score_joueur(4))
+print(test.effacer_lignes())
+test.placer(3,4)
+print(test.placer(3,4))
+

@@ -1,0 +1,59 @@
+from blocs import *
+
+
+class Grille():
+    
+    def __init__(self , n):
+        self.blocs = Blocs()
+        self.matrix = [[0]*n for i in range(n)]
+        self.blocs.blocs_disponibles = self.blocs.proposed_blocs()
+        self.score = 0
+    
+    def effacer_lignes(self):
+   # La methode permet d'effacer les lignes qui sont conplètes et ainsi donner un score 
+       for ligne in self.matrix:
+           if 0 not in ligne:
+               self.score += 1
+               for i in range(len(self.matrix)):
+                   ligne[i]=0
+
+
+    def placer (self, x, y):
+    # La methode permet de placer le bloc du joueur, elle verifie si c'est possible placer ce bloc s'il n'y  a pas un autre bloc déjà en place et si le bloc ne dépasse pas la grille
+
+        
+        for pos in self.blocs.bloc_du_joueur:
+            pos1=x + pos[0]
+            pos2=y + pos[1]
+            if pos1 > (len (self.matrix) - 1):
+                return False
+                
+            elif pos2 > (len (self.matrix) - 1):
+                return False
+                
+            elif  self.matrix[x + pos[0]][y + pos[1]] != 0 :
+                return False
+            
+            
+        for pos in self.blocs.bloc_du_joueur:
+            self.matrix[x + pos[0]][y + pos[1]] = 'X'
+        self.blocs.bloc_du_joueur = None
+        return True
+        
+
+
+
+if __name__== "__main__":
+
+    test = Grille(10) 
+    print(test.blocs.blocs_disponibles)
+    test.blocs.bloc_du_joueur = test.blocs.choix_bloc_joueur()
+    
+    res_placer = test.placer(3,4)
+    # test.blocs.bloc_du_joueur = test.blocs.choix_bloc_joueur()
+    print(res_placer)
+    print(test.matrix)
+    #print(test.score_joueur())
+
+    print(test.blocs.bloc_du_joueur)
+    print(test.blocs.blocs_disponibles)
