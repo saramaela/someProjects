@@ -1,1 +1,0 @@
-typeSearchIndex = [{"p":"Control","l":"AbstractModeleExecutable"},{"l":"All Classes","url":"allclasses-index.html"},{"p":"Model","l":"Board"},{"p":"Model","l":"Board.Direction"},{"p":"Control","l":"EcouteurModele"},{"p":"Model","l":"Element"},{"p":"View","l":"GUI"},{"p":"View","l":"TaquinGUI"},{"p":"View","l":"ViewBoard"}]
