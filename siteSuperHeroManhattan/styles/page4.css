@@ -1,0 +1,67 @@
+/************************************************** 
+	Mediaqueries
+**************************************************/
+@media all and (max-width:700px){
+	iframe{
+		width: 60%;
+		
+	}
+
+}
+
+
+/************************************** 
+	Quelques réglages d'ordre géneral
+****************************************/
+
+main{
+	text-align: center;
+}
+
+/****************************************************** 
+	Mise en forme de la première et troisième section
+******************************************************/
+
+.parties p {
+	opacity: 0.5;
+}
+.parties h2{
+	text-transform: uppercase;
+}
+.parties p:first-line{
+	font-style: italic;	
+}
+.parties:hover p{
+	opacity: 1;
+	width:70%;
+	margin: auto;
+}
+.parties ul{
+	list-style-type: none;
+}
+
+/********************************************
+	Mise en forme de la deuxième section
+*********************************************/
+
+.part2 img{
+	float: left;
+	clear: both;
+}
+
+.part2{
+	padding: 10px;
+	background: #FFF2F1 ;
+	transition: 3s;
+	width: 70%;
+	margin: auto;
+}
+
+.part2 p{
+	padding: 20px;
+}
+
+#s2{
+	padding-bottom: 10px;
+	border-bottom: solid 4px red;
+}

@@ -1,0 +1,73 @@
+/************************************************** 
+	Mediaqueries
+**************************************************/
+
+@media all and (max-width: 700px){
+
+.images img{
+	width:80%;
+	
+}
+.images img:hover{
+	transform:scale(2,2);
+}
+}
+
+
+
+/************************************** 
+	Quelques réglages d'ordre géneral
+****************************************/
+
+
+section p{
+	text-align: center;
+}
+h2{
+	color: #8B0000;
+}
+/************************************************** 
+	Mise en forme des deux premières sections
+**************************************************/
+
+
+#part1 section{
+	margin: 5%;
+	background-color: #FFF2F1;
+	
+}
+#part1 section:first-letter{
+	font-size: 40px;
+	color: red;
+}
+
+#part1 h2{
+
+	text-indent: 20px;
+	padding-bottom:5px;
+	border-bottom: solid 1px #900C3F;
+}
+p:hover ~ iframe{
+	transform: rotate(360deg);
+	transition: 4s;
+}
+iframe{
+	width:100%;
+	margin: auto;
+}
+/*****************************************************************************
+	Mise en forme des images de la troisième partie (celle qui comporte les images)
+******************************************************************************/
+
+.images{
+	display: grid;
+	grid-template-columns: auto auto auto auto auto auto;
+	opacity:0.20;
+}
+
+.images:hover{
+	border: solid 4px #FEA9A7;
+	background: #FAB6B4;
+	opacity: 1;
+	transition: 2s;
+}

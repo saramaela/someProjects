@@ -1,0 +1,125 @@
+/**************************************
+	Quelques réglages d'ordre géneral
+*****************************************/
+
+body{
+	background-color: #FDF7F7;
+	line-height: 25px;
+}
+
+img{
+	max-width: 300px;
+	max-height:200px;
+}
+footer, hr{
+	background-color: #FFF2F2;
+}
+
+hr{
+	height: 2px;
+}
+iframe{
+	border: unset;
+	max-width:500px;
+	max-height: 300px;
+}
+/********************
+	Menu déroulant 
+**********************/
+
+/* Pour réaliser ce menu déroulant je me suis servie de la méthode qui a été donné en cours("Petit topo sur les menus déroulants en CSS") comme exemplaire */
+.menu{
+	text-align: center;
+	font-size: 20px;
+}
+
+.menu .categorie{
+	border: double 5px #FFE4E1;
+	background: #FCB7B1;
+	display: inline-block;
+	vertical-align: top;
+	width: 230px;
+	font-size: 80%;
+	margin-bottom: 15px;
+}
+
+.menu .categorie ul{
+	display: none; 
+	position:absolute;
+	list-style-type: none;
+	padding:0;
+	margin: 0;
+	
+}
+.menu .categorie:hover ul{
+	display: block ;
+}
+.menu h3, .menu a{
+	display: block;
+	margin:0;
+	padding:.5em 1.5em;
+	font-size: inherit;
+	color: black;
+	background-color: #FCB7B1;
+	text-decoration: none;
+	box-sizing: border-box;
+	width: 14.5em;
+	border: solid 1px #FFE6E4;
+}
+
+.menu a:hover  {
+	color: white;
+	background: #FEA098;
+	transition: 1s;
+}
+
+
+/*************************************************************
+	Mise en page de la mini fiche de présentation des héros 
+**************************************************************/
+
+.intro{
+	display: block;
+	border : solid red 4px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 45%;
+	align-self: center;
+	padding-top: 15px;
+	text-align: center;
+	line-height: 30px;
+}
+
+#carte_id{
+	width: 200px;
+	padding-left: 10px;
+	float: left;
+	clear: both;
+}
+
+p:first-of-type strong{
+	text-decoration: underline;
+}
+
+
+/******************************
+	Mise en page de l'entête 
+*******************************/
+
+.intro{
+	grid-column: span 2;
+}
+
+header {
+	text-transform: uppercase;
+	text-align: center;
+	font-size: 120%;
+	border: solid #fd5c63 10px;
+	font-family:serif;
+}
+
+header:hover{
+	background-color: #fd5c63;
+	margin-left: 30%;
+	margin-right: 30%;
+}

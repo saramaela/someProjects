@@ -1,0 +1,128 @@
+
+@media all  and (min-width : 240px) {
+/************************************************** 
+	Quelques réglages d'ordre général
+**************************************************/	
+body {
+	background-image : url(../imgs/main/city.png);
+	margin: 30px;
+}
+
+header {
+	background-color : #FA8072;
+	font-weight: bold;
+	text-transform: uppercase;
+	text-align: center;
+	font-size: 180%;
+	border: 2px;
+	font-family: serif;
+	padding: 35px;
+}
+
+body a {
+	color: #483D8B;
+}
+
+h2{
+	text-align: center;
+	padding: 10px;
+	border: outset 5px #FFE4E1;
+	margin-left: 20%;
+	margin-right: 20%;
+	margin-bottom: 25px;
+	margin-top: 40px;
+}
+
+section, .debut, h2, footer p {
+	background-color: #FDF7F7;
+	line-height: 25px;
+}
+
+/************************************************** 
+	Mise en forme du menu
+**************************************************/
+.acces_site {
+	font-size: 140%;
+	display : grid;
+	grid-template-columns: auto auto auto auto auto;
+	background-color :#F88379;
+	padding-top:10px;
+	padding-bottom:40px;
+	padding-bottom:40px;
+	padding-bottom:15px;
+	
+}
+.acces_site a:hover{
+	font-weight:bold;
+}
+/*************************************************************** 
+	Mise en forme des différents blocs textuels de la page
+*********************************************************/
+.debut{
+	padding: 8px;
+	font-weight: 600;
+	color: #535252  ;
+}
+
+
+.heros {
+	margin-left: 40px;
+	margin-right: 40px;
+	display: grid;
+	grid-template-columns: 50% 50%;
+	grid-gap: 15px;
+}	
+
+.presentation {
+	text-align: left;
+	padding-left: 8px;
+	border-bottom: solid 2px #FFE4E1;
+
+}
+
+.Tony p, .Matt p, .Nicholas p, .Clinton {
+	padding-left: 7px;
+}
+
+/************************************************** 
+	Mise en forme des images
+**************************************************/
+#iron, #nick, #dare, #hawk {
+	float: left;
+	clear: both;
+	margin: auto;	
+	padding-right: 8px;
+	padding-bottom: 8px;
+}
+	
+#iron{
+	width: 265px;	
+}
+
+#dare {
+	width: 148px;
+}
+
+#nick{
+	width: 116px;
+}
+
+#hawk {
+	width: 100px;
+}
+
+/************************************************** 
+	Mise en forme du pied de page
+**************************************************/ 
+footer  p{
+	border: outset #FFE4E1;
+	text-align: right;
+	margin-left: 45%;
+	padding: 4px;
+}
+
+footer{
+	margin-top: 25px;
+}
+
+}

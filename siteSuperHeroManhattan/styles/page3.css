@@ -1,0 +1,43 @@
+/************************************** 
+	Quelques réglages d'ordre géneral
+****************************************/
+iframe{
+	width:100%;
+	margin: auto; 
+}
+
+p{
+	padding: 15px;
+}
+
+
+/************************************************** 
+	Mise en forme des trois premières sections
+**************************************************/
+
+.parties {
+	width: 70%;
+	background: #FFF2F1;
+	border-bottom: inset 3px #F57D78;
+	margin-left:20%;
+	margin-bottom:30px;
+}
+.parties h2{
+	border-bottom: inset 1px #FDE8E7;
+	padding: 20px;
+	background:#F3D0CF;
+	transition: 2s;
+}
+.parties:hover h2{
+	color: #8B0000;
+	transition: 1.5s;
+}
+
+.parties:nth-child(even){
+	text-align: right;
+	margin-left:  10%;
+}
+.parties:last-child{
+	text-align: center;
+	
+}
